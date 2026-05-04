@@ -29,12 +29,15 @@ Nodo* insertar(Nodo* raiz, Mascota m) {
     if (raiz == NULL) {
         return crearNodo(m);
     }
-    if (strcmp(m.nombre, raiz->mascota.nombre) < 0) {
-        raiz->izq = insertar(raiz->izq, m);
-    } else if (strcmp(m.nombre, raiz->mascota.nombre) > 0) {
-        raiz->der = insertar(raiz->der, m);
-    }
-    // Si el nombre ya existe, no lo insertamos de nuevo
+    //ToDo: inserta el nodo en el lado izquierdo o derecho
+    //Tip: podemos usar strcmp para ordenar alfabéticamente
+
+
+
+
+    
+
+    
     return raiz;
 }
 
@@ -43,12 +46,19 @@ Nodo* buscar(Nodo* raiz, const char* nombre) {
     if (raiz == NULL) return NULL;
 
     int cmp = strcmp(nombre, raiz->mascota.nombre);
+
+    //Encontramos el nombre
     if (cmp == 0) {
         return raiz;
-    } else if (cmp < 0) {
-        return buscar(raiz->izq, nombre);
-    } else {
-        return buscar(raiz->der, nombre);
+    } 
+
+    //ToDo: Modificar else-if y else para buscar en el subarbol derecho o izquierdo
+    else if (cmp < 0) {
+        return raiz;
+    } 
+    
+    else {
+        return raiz; 
     }
 }
 
